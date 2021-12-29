@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "threads.thor",
+  "variantName": "debug",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 84,
+      "versionName": "0.8.4",
+      "outputFile": "app-debug.apk"
+    }
+  ],
+  "elementType": "File"
+}

@@ -1,0 +1,147 @@
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-kapt"
+apply plugin: "com.ibotta.gradle.aop"
+
+android {
+
+    compileSdkVersion 31
+
+    defaultConfig {
+        applicationId "threads.thor"
+        minSdkVersion 29
+        targetSdkVersion 29
+        versionCode 84
+        versionName "0.8.4"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+        def documentsAuthorityValue = applicationId + ".provider"
+
+        externalNativeBuild {
+
+            cmake {
+                cppFlags ""
+                arguments "-DCMAKE_VERBOSE_MAKEFILE=1"
+            }
+        }
+        ndk{
+            //abiFilters "armeabi-v7a"
+            //abiFilters "arm64-v8a","armeabi-v7a"
+            abiFilters "arm64-v8a"
+        }
+        // Now we can use ${documentsAuthority} in our Manifest
+        manifestPlaceholders =
+                [documentsAuthority: documentsAuthorityValue]
+        // Now we can use BuildConfig.DOCUMENTS_AUTHORITY in our code
+        buildConfigField "String",
+                "DOCUMENTS_AUTHORITY",
+                "\"${documentsAuthorityValue}\""
+    }
+    externalNativeBuild {
+
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2"
+        }
+    }
+    packagingOptions {
+        // pickFirsts:当出现重复文件，会使用第一个匹配的文件打包进入apk
+        pickFirst 'lib/arm64-v8a/libflush.so'
+    }
+    buildTypes {
+        debug {
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
+        }
+
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
+    buildToolsVersion '31.0.0'
+
+//    lintOptions {
+////        checkReleaseBuilds false
+//        // Or, if you prefer, you can continue to check for errors in release builds,
+//        // but continue the build even when errors are found:
+////        abortOnError false
+//    }
+
+}
+
+dependencies {
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+
+    kapt "android.arch.lifecycle:compiler:1.1.0"
+    implementation "android.arch.persistence.room:runtime:1.0.0"
+    kapt "android.arch.persistence.room:compiler:1.0.0"
+
+    // Android (LICENSE done)
+    implementation 'androidx.work:work-runtime:2.7.1'
+
+    // Android (LICENSE done)
+    implementation 'com.google.android.material:material:1.4.0'
+
+    // Android (LICENSE done)
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    // API (LICENSE done)
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    // API (LICENSE done)
+    implementation 'androidx.room:room-runtime:2.3.0'
+
+    // API (LICENSE done)
+    implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
+
+    // API (LICENSE done)
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+
+    // API (LICENSE done)
+    implementation 'androidx.webkit:webkit:1.4.0'
+
+    // API (LICENSE done)
+    implementation 'com.google.protobuf:protobuf-java:3.15.6'
+
+    // API (LICENSE done)
+    implementation 'commons-io:commons-io:2.8.0'
+
+    // API (LICENSE done)
+    implementation 'com.google.guava:guava:30.1-android'
+
+    // API (LICENSE done)
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+
+    // UI Graphics (LICENSE done)
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation project(path: ':lite')
+
+    // API (LICENSE done)
+    annotationProcessor 'androidx.room:room-compiler:2.3.0'
+
+    // API (LICENSE done)
+    implementation 'com.google.code.gson:gson:2.8.9'
+
+    implementation "org.aspectj:aspectjrt:1.9.6"
+
+}
+

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/action_next_page"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/next_page"
+            android:padding="12dp"
+            android:src="@drawable/arrow_right"
+            android:layout_gravity="center" />
+
+        <ImageButton
+            android:id="@+id/action_find_page"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/find_page"
+            android:padding="12dp"
+            android:src="@drawable/search"
+            android:layout_gravity="center" />
+
+        <ImageButton
+            android:id="@+id/action_download"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/download"
+            android:padding="12dp"
+            android:src="@drawable/download"
+            android:layout_gravity="center"/>
+
+        <ImageButton
+            android:id="@+id/action_share"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/share"
+            android:padding="12dp"
+            android:src="@drawable/share"
+            android:layout_gravity="center" />
+
+        <ImageButton
+            android:id="@+id/action_reload"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/reload_page"
+            android:padding="12dp"
+            android:src="@drawable/reload"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+    <TextView
+        style="?android:attr/listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:gravity="center_horizontal" />
+
+
+    <TextView
+        android:id="@+id/action_information"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:padding="12dp"
+        android:singleLine="true"
+        android:text="@string/information"
+        android:textAlignment="textStart"
+        android:textAppearance="?android:textAppearanceLargePopupMenu"
+        app:drawableEndCompat="@drawable/qrcode"
+        app:drawableTint="?android:textColorPrimary" />
+
+
+    <TextView
+        android:id="@+id/action_history"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:padding="12dp"
+        android:singleLine="true"
+        android:text="@string/history"
+        android:textAlignment="textStart"
+        android:textAppearance="?android:textAppearanceLargePopupMenu" />
+
+
+    <TextView
+        android:id="@+id/action_downloads"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:padding="12dp"
+        android:singleLine="true"
+        android:text="@string/downloads"
+        android:textAlignment="textStart"
+        android:textAppearance="?android:textAppearanceLargePopupMenu" />
+
+
+    <TextView
+        android:id="@+id/action_cleanup"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:padding="12dp"
+        android:singleLine="true"
+        android:text="@string/action_cleanup"
+        android:textAlignment="textStart"
+        android:textAppearance="?android:textAppearanceLargePopupMenu" />
+
+
+    <TextView
+        style="?android:attr/listSeparatorTextViewStyle"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+
+    <TextView
+        android:id="@+id/action_settings"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:padding="12dp"
+        android:singleLine="true"
+        android:text="@string/settings"
+        android:textAlignment="textStart"
+        android:textAppearance="?android:textAppearanceLargePopupMenu"
+        app:drawableEndCompat="@drawable/tune"
+        app:drawableTint="?android:textColorPrimary" />
+
+
+    <TextView
+        android:id="@+id/action_documentation"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:padding="12dp"
+        android:singleLine="true"
+        android:text="@string/documentation"
+        android:textAlignment="textStart"
+        android:textAppearance="?android:textAppearanceLargePopupMenu" />
+
+</LinearLayout>
